@@ -9,4 +9,8 @@ videoRoutes.post('/create-video', (request, response) => {
     videoRepository.create(request, response)
 })
 
+videoRoutes.get('/get-videos/:user_id', (request, response) => {
+    videoRepository.getVideos(request, response)
+})
+
 export { videoRoutes }
