@@ -6,27 +6,21 @@ import { Request, Response } from "express-serve-static-core";
 
 class VideoRepository {
     create(request: Request, response: Response) {
-        const { name, email, password } = request.body
-        //3:22
-        hash(password, 10, (error, hash) => {
-            if (error) {
-                return response.status(500).json(error)
-            }
+        const { title, description, user_id } = request.body
 
-            pool.getConnection((err: any, connection: any) => {
-                connection.query(
-                    'INSERT INTO users (user_id, name, email, password) VALUES (?,?,?,?)',
-                    [uuidv4(),name, email, hash],
-                    (error:any, result:any, fields:any) => {
-                        connection.release()
-                        if (error) {
-                            return response.status(400).json(error)
-                        }
-                        response.status(200).json({success: true})
+
+        pool.getConnection((err: any, connection: any) => {
+            connection.query(
+                'INSERT INTO videos (video_id, user_id, title, description) VALUES (?,?,?,?)',
+                [uuidv4(), user_id, title, description],
+                (error:any, result:any, fields:any) => {
+                    connection.release()
+                    if (error) {
+                        return response.status(400).json(error)
                     }
-                )
-            })
-
+                    response.status(200).json({message: 'Vídeo criado com sucesso'})
+                }
+            )
         })
     }
 

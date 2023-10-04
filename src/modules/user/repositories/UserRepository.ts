@@ -22,7 +22,7 @@ class UserRepositorie {
                         if (error) {
                             return response.status(400).json(error)
                         }
-                        response.status(200).json({success: true})
+                        response.status(200).json({message: 'Usuário criado com sucesso'})
                     }
                 )
             })
@@ -57,7 +57,7 @@ class UserRepositorie {
                             
                             console.log(token)
 
-                            return response.status(200).json({token: token})
+                            return response.status(200).json({token: token, message: 'Autenticado com sucesso'})
 
                         }
                     })
