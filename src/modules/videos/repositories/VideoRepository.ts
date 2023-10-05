@@ -36,7 +36,25 @@ class VideoRepository {
                     if (error) {
                         return response.status(400).json({error: "Erro ao buscar os videos"})
                     }
-                    return response.status(200).json({menssage: "Videos retornado com sucesso", video: results})
+                    return response.status(200).json({menssage: "Videos do usuário retornado com sucesso", video: results})
+                }
+            )
+        })
+    }
+
+    searchVideos(request: Request, response: Response) {
+        const { search } = request.query
+
+        pool.getConnection((err: any, connection: any) => {
+            connection.query(
+                'SELECT * FROM videos WHERE title LIKE ? ',
+                [`%${search}%`],
+                (error:any, results:any, fields:any) => {
+                    connection.release()
+                    if (error) {
+                        return response.status(400).json({error: "Erro ao buscar os videos"})
+                    }
+                    return response.status(200).json({menssage: "Videos buscados com sucesso", video: results})
                 }
             )
         })

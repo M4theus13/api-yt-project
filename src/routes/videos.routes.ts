@@ -13,4 +13,9 @@ videoRoutes.get('/get-videos/:user_id', (request, response) => {
     videoRepository.getVideos(request, response)
 })
 
+videoRoutes.get('/search-videos', (request, response) => {
+    videoRepository.searchVideos(request, response)
+})
+
+
 export { videoRoutes }
