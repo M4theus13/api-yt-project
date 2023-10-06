@@ -11,7 +11,7 @@ userRoutes.post('/sign-up', (request, response) => {
 })
 
 userRoutes.post('/sign-in', (request, response) => { 
-    userRepository.login(request, response)
+    userRepository.login(request, response) //padrao senha 123
 })
 
 export { userRoutes }
