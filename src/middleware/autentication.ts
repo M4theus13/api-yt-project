@@ -2,7 +2,7 @@ import { verify } from "jsonwebtoken"
 
 const autentication = (req:any, res:any, next:any) => {
     try {
-        const decode = verify(req.headers.authorization, 'segredo' )
+        const decode = verify(req.headers.authorization, process.env.SECRET as string )
         req.user = decode
         next()
     } catch(error) {

@@ -1,8 +1,12 @@
-import express, { request, response }  from "express";
+import express from "express";
 import { userRoutes } from "./routes/user.routes";
 import { videoRoutes } from "./routes/videos.routes";
+import { config } from "dotenv";
 
+config()
 const app = express()
+
+console.log(process.env.SECRET)
 
 app.use(express.json())
 
