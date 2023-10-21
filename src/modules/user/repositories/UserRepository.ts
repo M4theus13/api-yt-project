@@ -71,7 +71,7 @@ class UserRepositorie {
 
         pool.getConnection((err: any, connection: any) => {
             connection.query(
-                'DELETE FROM `users` WHERE `users`.`user_id` = f88b6ea7-6c21-4ac2-808c-fc06e17cf6d2',
+                'DELETE FROM `users` WHERE `users`.`user_id` = "f88b6ea7-6c21-4ac2-808c-fc06e17cf6d2"',
                 // [user_id],
                 (error:any, results:any, fields:any) => {
                     connection.release()
