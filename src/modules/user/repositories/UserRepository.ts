@@ -65,6 +65,24 @@ class UserRepositorie {
             )
         })
     }
+
+    delete(request: Request, response: Response) {
+        const { user_id } = request.body
+
+        pool.getConnection((err: any, connection: any) => {
+            connection.query(
+                'DELETE FROM users WHERE (user_id = ?)',
+                [user_id],
+                (error:any, results:any, fields:any) => {
+                    connection.release()
+                    if (error) {
+                        return response.status(400).json({error: error})
+                    }
+                    return response.status(200).json({menssage: "Conta e videos deletada com sucesso"})
+                }
+            )
+        })
+    }
 }
 
 export { UserRepositorie }

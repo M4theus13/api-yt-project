@@ -22,6 +22,7 @@ class VideoRepository {
                 }
             )
         })
+
     }
 
     getVideos(request: Request, response: Response) {
