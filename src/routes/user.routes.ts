@@ -15,7 +15,7 @@ userRoutes.post('/sign-in', (request, response) => {
     userRepository.login(request, response) //padrao senha 123
 })
 
-userRoutes.delete('/delete', autentication, (request, response) => { 
+userRoutes.delete('/delete', (request, response) => { 
     userRepository.delete(request, response) //padrao senha 123
 })
 
