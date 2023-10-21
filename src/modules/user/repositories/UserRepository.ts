@@ -67,12 +67,12 @@ class UserRepositorie {
     }
 
     delete(request: Request, response: Response) {
-        const { user_id } = request.body
+        // const { user_id } = request.body
 
         pool.getConnection((err: any, connection: any) => {
             connection.query(
-                'DELETE FROM `users` WHERE `users`.`user_id` = ?',
-                [user_id],
+                'DELETE FROM `users` WHERE `users`.`user_id` = f88b6ea7-6c21-4ac2-808c-fc06e17cf6d2',
+                // [user_id],
                 (error:any, results:any, fields:any) => {
                     connection.release()
                     if (error) {
