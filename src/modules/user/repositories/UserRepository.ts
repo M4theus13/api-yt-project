@@ -71,7 +71,7 @@ class UserRepositorie {
 
         pool.getConnection((err: any, connection: any) => {
             connection.query(
-                'DELETE FROM users WHERE (user_id = ?)',
+                'DELETE FROM `users` WHERE `users`.`user_id` = ?',
                 [user_id],
                 (error:any, results:any, fields:any) => {
                     connection.release()

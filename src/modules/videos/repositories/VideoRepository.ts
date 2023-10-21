@@ -66,7 +66,7 @@ class VideoRepository {
 
         pool.getConnection((err: any, connection: any) => {
             connection.query(
-                'DELETE FROM videos WHERE (video_id = ?)',
+                'DELETE FROM `videos` WHERE `videos`.`video_id` = ?',
                 [video_id],
                 (error:any, results:any, fields:any) => {
                     connection.release()
