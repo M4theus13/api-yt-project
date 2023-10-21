@@ -18,5 +18,9 @@ videoRoutes.get('/search-videos', autentication, (request, response) => {
     videoRepository.searchVideos(request, response)
 })
 
+videoRoutes.delete('/delete-video', autentication, (request, response) => {
+    videoRepository.deleteVideo(request, response)
+})
+
 
 export { videoRoutes }
