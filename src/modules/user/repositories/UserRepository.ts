@@ -83,6 +83,24 @@ class UserRepositorie {
             )
         })
     }
+
+    updateName(request: Request, response: Response) {
+        const { user_id, new_name  } = request.body
+
+        pool.getConnection((err: any, connection: any) => {
+            connection.query(
+                'UPDATE users SET name = ? WHERE user_id = ?',
+                [new_name, user_id],
+                (error:any, results:any, fields:any) => {
+                    connection.release()
+                    if (error) {
+                        return response.status(400).json({error: error})
+                    }
+                    return response.status(200).json({menssage: "Nome Alterado"})
+                }
+            )
+        })
+    }
 }
 
 export { UserRepositorie }

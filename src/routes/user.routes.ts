@@ -19,4 +19,8 @@ userRoutes.delete('/delete', (request, response) => {
     userRepository.delete(request, response) //padrao senha 123
 })
 
+userRoutes.post('/update-name', (request, response) => { 
+    userRepository.updateName(request, response) //padrao senha 123
+})
+
 export { userRoutes }
